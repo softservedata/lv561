@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class Calculator {
+
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter first number: ");
+        long first = scanner.nextLong();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Choose operation: '+' , '-' , '/' , '*' ");
+        String operation = reader.readLine();
+
+        System.out.println("Enter second number: ");
+        long second = scanner.nextLong();
+
+        switch (operation) {
+            case"+":
+                long resPlus = first+second;
+                System.out.println("result is: "+resPlus);
+                break;
+            case "-":
+                long resMinus = first-second;
+                System.out.println("result is: "+resMinus);
+                break;
+            case "/":
+                double resDivide = first/second;
+                System.out.println("result is: "+resDivide);
+                break;
+            case "*":
+                long resMultiply =first*second;
+                System.out.println("result is: "+resMultiply);
+                break;
+
+        }
+
+
+
+    }
+}
