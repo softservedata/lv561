@@ -8,10 +8,14 @@ git config -l
 git clone https://github.com/softservedata/lv561.git
 git remote -v
 
+origin
+main (master) branch
+
 git init
 git remote add [nickname] [url]
 git remote add ivan https://github.com/softservedata/lv561.git
-
+/softservedata/lv561.git				URI
+https://github.com/softservedata/lv561.git		URL
 
 git status
 git add .
@@ -21,8 +25,9 @@ git log -3
 #git push origin main   #origin main  - by default
 git push
 
-git pull ivan main
 git push ivan main
+
+git pull ivan main
 
 # view branch
 git branch
@@ -34,6 +39,61 @@ git checkout main
 
 git diff --cached
 
+# delete folder
+git rm -r -f my
+delete from git
+git rm --cached Calculator.TXT
+# rename
+git mv max.txt max1.txt
+
+
+git log -3
+
+commit ec41de96ba70772a60d799cfc01353a853ce94ae
+# switch to anonimous  branch
+git checkout ec41de
+
+# view branch
+git branch
+
+
+# create new branch - mixed
+git branch mixed
+
+# switch to mixed branch
+git checkout mixed
+
+# add new branch to github
+git push origin mixed
+
+			w	index	LR
+git reset --hard 	+	+	+
+git reset 		-	+	+
+git reset --soft 	-	-	+
+
+git reset --hard  f903d3
+
+git log -3
+git reflog
+git reset --hard a5be000
+
+commit a5be0007f42ee6132c67cf53f2d837d85db82229 (HEAD -> main)
+Author: bebebe <garasum@ukr.net>
+Date:   Thu Jan 21 19:22:41 2021 +0200
+
+    remove files
+
+commit 	479c2f204c4bb4171878b92b539d57225 (origin/main, origin/HEAD)
+Author: bebebe <garasum@ukr.net>
+Date:   Thu Jan 21 19:19:11 2021 +0200
+
+    add MAIN message
+
+# view all branch
+git branch -a
+
+# delete local branch
+git branch master -d
 
 -----------------------------
 
@@ -49,3 +109,6 @@ git add .
 git commit -m "message"
 git push
 -----------------------------
+
+Idea Token
+f3aec28fc5d8c73208edbaf59082f98a5b2b68d2
