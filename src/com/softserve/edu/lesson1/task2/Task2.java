@@ -1,5 +1,5 @@
 
-package com.softserv.javacore.task2;
+package com.softserve.edu.lesson1.task2;
 
 import java.util.Scanner;
 /**

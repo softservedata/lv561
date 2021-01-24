@@ -1,12 +1,13 @@
 /**
  * Завдання до перошї лекції
  */
-package com.softserv.javacore.task1;
+package com.softserve.edu.lesson1.task1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /**
+ * 
  * 
  * @author Taras_Krasitskyi
  * int a,b
