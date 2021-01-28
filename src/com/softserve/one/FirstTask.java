@@ -1,4 +1,4 @@
-package com.softserve.edu;
+package com.softserve.one;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,9 +16,7 @@ public class FirstTask {
         System.out.println("A+B=" + (a+b));
         System.out.println("A-B=" + (a-b));
         System.out.println("A*B=" + (a*b));
-        float x = a;
-        float y = b;
-        float res = x/y;
+        float res = (float) a / (float) b;
         System.out.println("A/B=" + res);
 
         System.out.println("\n");
