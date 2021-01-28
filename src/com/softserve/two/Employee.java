@@ -5,19 +5,35 @@ public class Employee {
     private int rate = 0;
     private int hours = 0;
     public static int totalSum;
-    public Employee() {}
-    public Employee(String name, int rate){
-        this.name = name;
-        this.rate = rate;
+
+    public Employee() {
     }
-    public Employee(String n, int rate, int hours){
+
+    public Employee(String n, int r) {
         this.name = n;
-        this.rate = rate;
-        this.hours = hours;
+        this.rate = r;
     }
-    public int getSalary(){
-        totalSum = this.hours*this.rate;
+
+    public Employee(String n, int r, int h) {
+        this.name = n;
+        this.rate = r;
+        this.hours = h;
+    }
+
+    public int getSalary() {
+        totalSum = this.hours * this.rate;
         return totalSum;
     }
 
+    public String toString() {
+        return "Name - " + name + ", Rate - " + rate + ", Hours - " + hours;
+    }
+
+    public void changeRate(int r) {
+        this.rate = r;
+    }
+
+    public float getBonuses() {
+        return ((float) ((float) getSalary() * 0.1));
+    }
 }
