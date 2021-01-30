@@ -29,5 +29,16 @@ public class Student {
         avrRating = a / (float) n;
         return avrRating;
     }
+
+    public static void main(String[] args) {
+        Student st1 = new Student("Kolya", 3);
+        Student st2 = new Student("leha", 12);
+        Student st3 = new Student("Vasya", 5);
+        System.out.println(st1.toString());
+        System.out.println(st2.toString());
+        System.out.println(st3.toString());
+        System.out.println("Student st1 better than st2 - " + st1.betterStudent(st1, st2));
+        System.out.println("Average rating - " + st2.getAvrRating());
+    }
 }
 
