@@ -1,4 +1,4 @@
-package com.softserve.edu.hv1;
+package com.softserve.hv1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

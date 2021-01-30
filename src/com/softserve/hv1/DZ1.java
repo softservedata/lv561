@@ -1,4 +1,4 @@
-package com.softserve.edu.hv1;
+package com.softserve.hv1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,6 +13,6 @@ public class DZ1 {
 		float perim = (float) (2 * 3.14 * radius);
 		float square = (float) (3.14 * radius * radius);
 		System.out.println("Perimeter of the bed = " + perim);
-		System.out.println("Square of the bed" + square);
+		System.out.println("Square of the bed = " + square);
 	}
 }
