@@ -1,6 +1,7 @@
-package com.company;
+package com.company.practicalTask1;
 
 public class Employee {
+
 
     //three private fields: name, rate and hours;
     private String name;
@@ -8,7 +9,7 @@ public class Employee {
    private int hours;
 
     //	static field totalSum
-       private static Object totalSum;
+       static Object totalSum;
 
     //	properties for access to these fields;
     public String getName() {
@@ -60,14 +61,26 @@ getSalary() - to calculate the salary of person (rate * hours)
 toString() - to output information about employee
 changeRate(int rate) - to change the rate of some employee and recalculate his salary
 getBonuses() – to calculate 10% from salary*/
-       int salary(){
+       private int salary;
+       private int bonuses;
+
+       int getSalary(){
            return (int) rate * hours;
        }
 
-       int bonuses(){
-           return salary() / 10;
+       int changeRate(int rate){
+           return (int) (this.rate =  101);
        }
+       int getBonuses(){ return (this.salary / 100) * 10;}
 
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", rate=" + rate +
+                ", hours=" + hours +
+                '}';
+    }
 }
+
 
