@@ -5,6 +5,7 @@ import java.util.Calendar;
 public class Person {
 	private String firstName, lastName;
 	private int birthYear;
+	
 	public String getLastName() {
 		return lastName;
 	}
@@ -35,7 +36,8 @@ public class Person {
 	
 	public int getAge(int birthYear) {
 		int year = Calendar.getInstance().get(Calendar.YEAR);
-		return birthYear - year;
+		int age = year - birthYear;
+		return age;
 	}
 	
 	public void output(){
