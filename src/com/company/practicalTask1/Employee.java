@@ -4,9 +4,9 @@ public class Employee {
 
 
     //three private fields: name, rate and hours;
-    private String name;
-   private double rate;
-   private int hours;
+     private String name;
+     private double rate;
+     private int hours;
 
     //	static field totalSum
        static Object totalSum;

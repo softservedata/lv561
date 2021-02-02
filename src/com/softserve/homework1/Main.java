@@ -19,6 +19,7 @@ In the method main() create 5 objects of Person type and input information about
 */
 
 public class Main {
+
     Person firstPerson = new Person();
     firstPerson.input();
     firstPerson.output();
