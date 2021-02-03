@@ -1,7 +1,7 @@
 package com.company;
 
 enum Breed {
-    MALAMUTE, BULLDOG, TERRIER
+    MALAMUTE, LABRADOR, TERRIER
 }
 
 public class Dog {
