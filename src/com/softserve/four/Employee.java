@@ -82,5 +82,6 @@ public class Employee {
         for (int i = 0; i<emArr.length; i++){
             System.out.println(emArr[i].toString());
         }
+        sc.close();
     }
 }
