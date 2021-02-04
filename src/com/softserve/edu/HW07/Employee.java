@@ -67,11 +67,11 @@ public class Employee {
 		Employee emp3 = new Employee("Sarah", 1, (295.23));
 		Employee emp4 = new Employee("Lily", 2, (250.05));
 		Employee emp5 = new Employee("Lil", 3, (280.15));
-		System.out.println(emp1);
-		System.out.println(emp2);
-		System.out.println(emp3);
-		System.out.println(emp4);
-		System.out.println(emp5);
+		System.out.println("\t"+emp1);
+		System.out.println("\t"+emp2);
+		System.out.println("\t"+emp3);
+		System.out.println("\t"+emp4);
+		System.out.println("\t"+emp5);
 		Employee[] a = new Employee[5];
 		a[0] = emp1;
 		a[1] = emp2;
@@ -89,12 +89,13 @@ public class Employee {
 					System.out.println("In departament num." + dn + " works: ");
 					chk = true;
 				}
-				System.out.println(a[i]);
+				System.out.println("\t"+a[i]);
 			}
 		}
 		if (chk == false) {
 			System.out.println("No such departament num!!!");
 		}
+		sc.close();
 		//
 		boolean isSorted = true;
 		Employee tmp = new Employee();
@@ -119,7 +120,7 @@ public class Employee {
 		}
 		System.out.println("Sorting by sallary: ");
 		for (int i = 0; i < a.length; i++)
-			System.out.println(a[i]);
+			System.out.println("\t"+a[i]);
 
 		// System.out.println('\n'+Arrays.toString(a));
 
