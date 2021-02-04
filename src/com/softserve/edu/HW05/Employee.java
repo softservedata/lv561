@@ -58,21 +58,21 @@ public class Employee {
 		totalSum = totalSum + getSalary();
 	}
 
-	private Employee() {
+	public Employee() {
 		name = "NoName";
 		rate = 0;
 		hours = 0;
 		totalSum = totalSum + rate * hours;
 	}
 
-	private Employee(String name, int rate) {
+	public Employee(String name, int rate) {
 		this.name = name;
 		this.rate = rate;
 		hours = 0;
 		totalSum = totalSum + rate * hours;
 	}
 
-	private Employee(String name, int rate, int hours) {
+	public Employee(String name, int rate, int hours) {
 		this.name = name;
 		this.rate = rate;
 		this.hours = hours;

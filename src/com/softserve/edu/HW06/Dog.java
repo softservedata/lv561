@@ -34,14 +34,14 @@ public class Dog {
 	private Breed breed;
 	private int age;
 
-	private Dog() {
+	public Dog() {
 		name = "NoName";
 		age = 0;
 		this.breed = Breed.NOBREED;
 
 	}
 
-	private Dog(String name, String breed, int age) {
+	public Dog(String name, String breed, int age) {
 		this.name = name;
 		this.breed = Breed.valueOf(breed.toUpperCase());
 		this.age = age;

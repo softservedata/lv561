@@ -65,20 +65,20 @@ public class Person {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", birthYear=" + birthYear + "]";
 	}
 
-	private Person() {
+	public Person() {
 		this.firstName = "NoFirstName";
 		this.lastName = "NoLastName";
 		this.birthYear = 0;
 	}
 
-	private Person(String firstName, String lastName) {
+	public Person(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthYear = 0;
 
 	}
 
-	private Person(String firstName, String lastName, int birthYear) {
+	public Person(String firstName, String lastName, int birthYear) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthYear = birthYear;

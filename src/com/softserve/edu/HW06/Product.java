@@ -19,13 +19,13 @@ public class Product {
 	private double price;
 	private double quantity;
 
-	private Product() {
+	public Product() {
 		name = "NoName";
 		price = 0.0;
 		quantity = 0.0;
 	}
 
-	private Product(String name, double price, double quantity) {
+	public Product(String name, double price, double quantity) {
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
