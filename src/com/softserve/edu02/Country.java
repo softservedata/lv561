@@ -70,6 +70,6 @@ public class Country {
     }
 
     public enum Continentals {
-        AMERICA, EUROPE, AFRICA, ASIA, AUSTRALIA
+        AMERICA, EUROPE, AFRICA, ASIA, AUSTRALIA;
     }
 }
