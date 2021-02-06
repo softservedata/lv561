@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class ApplSumProd {
 	public static void main(String[] args) {
 
-		int[] arr = { -1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		int[] arr = { 1, 2, 3, 4, -5, 6, 7, 8, 9, 10 };
 		System.out.println(Arrays.toString(arr));
 		int idx = 5;
 		
@@ -24,6 +24,7 @@ public class ApplSumProd {
 		int prd = 1;
 		boolean isSum = false;
 		for (int i = 0; i < idx; i++) {
+			isSum = false;
 			if (arr[i] > 0) {
 				sum = sum + arr[i];
 
