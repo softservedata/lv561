@@ -40,13 +40,13 @@ public class Person {
         int bYear = 0;
 
         try {
-            System.out.println("Введіть фамілію персони :");
+            System.out.println("Введіть фамілію: ");
             fName = reader.readLine();
 
-            System.out.println("Введіть ім'я персони :");
+            System.out.println("Введіть ім'я: ");
             lName = reader.readLine();
 
-            System.out.println("Введіть рік народження персони :");
+            System.out.println("Введіть рік народження: ");
             bYear = Integer.parseInt(reader.readLine());
         }
         catch (IOException e){
