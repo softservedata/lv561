@@ -16,8 +16,8 @@ public class AplArray {
 	public static void main(String[] args) {
 		int[] arr = { 9, 1, 0, -6, 12, 3, -7, 8, 6, -2 };
 		System.out.print("Array: [");
-		for (int i = 0; i<arr.length;i++) {
-			System.out.print(arr[i]+" ");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
 		}
 		System.out.print("]\n");
 		int max = arr[0];
@@ -37,25 +37,25 @@ public class AplArray {
 
 		int ammount = 0;
 		for (int i = 0; i < arr.length; i++) {
-			if (arr[i] < 0)
+			if (arr[i] < 0 && arr[i] != 0)
 				ammount = ammount + 1;
 		}
-		
+
 		System.out.println("The amount of negative numbers in the array: " + ammount);
-		
+
 		int positiv = 0;
 		int negative = 0;
-		for(int i =0; i<arr.length; i++) {
-			if (arr[i] >= 0) positiv++;
-			else negative++;
-		}	
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] > 0 && arr[i] != 0)
+				positiv++;
+			else
+				negative++;
+		}
 		if (positiv > negative)
-			System.out.println("Positive values are more! "+ positiv+" positive values and "+negative+ " negative values");
+			System.out.println(
+					"Positive values are more! " + positiv + " positive values and " + negative + " negative values");
 		else
-			System.out.println("Negative values are more! "+negative+ " values and "+ positiv+" values");
-			
-			
-		
+			System.out.println("Negative values are more! " + negative + " values and " + positiv + " values");
 
 	}
 

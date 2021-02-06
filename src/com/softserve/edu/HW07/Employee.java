@@ -1,6 +1,6 @@
 package com.softserve.edu.HW07;
 
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 /*-
