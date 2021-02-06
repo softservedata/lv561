@@ -50,7 +50,7 @@ public class Person {
             bYear = Integer.parseInt(reader.readLine());
         }
         catch (IOException e){
-
+            System.out.println("Дані введені некорректно!");
         }
 
         return new Person(fName, lName, bYear);
