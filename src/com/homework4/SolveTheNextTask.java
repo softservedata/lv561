@@ -1,4 +1,4 @@
-package com.homework3;
+package com.homework4;
 import java.lang.Math;
 
 public class SolveTheNextTask {
