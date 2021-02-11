@@ -13,7 +13,7 @@ public class Month {
         }
 
         int [] daysInMonth = {31,28,31,30,31,30,31,31,30,31,30,31};
-        String[] nameOfMonth = {"January", "Fbreuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        String[] nameOfMonth = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
         System.out.println("This month's name is "+nameOfMonth[monthNumber-1]+" and it has "+daysInMonth[monthNumber-1]+" days");
 
     }
