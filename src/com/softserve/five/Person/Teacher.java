@@ -14,7 +14,7 @@ public class Teacher extends Staff {
     }
 
     public Teacher(String name) {
-        super.name = name;
+        super.setName(name);
         System.out.println("Type - " + TYPE_PERSON);
     }
 }
