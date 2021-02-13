@@ -1,0 +1,2 @@
+1. Чи правильно вчинив, що додав в клас Person метод public abstract String getTypePerson();
+2. Чи можна уникнути в даному прикладі явне зведення типу ((Staff) prs[i]).salary();
