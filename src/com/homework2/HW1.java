@@ -9,14 +9,14 @@ class Home1 {
         Output obtained results.
          */
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введіть периметр ");
+        System.out.println("Write perimetr: ");
         int r = sc.nextInt();
 
-                double per = 2 * Math.PI * r;
-                double s = Math.PI * Math.pow(r, 2);
+        double per = 2 * Math.PI * r;
+        double s = Math.PI * Math.pow(r, 2);
 
-                System.out.println("периметр = " + per);
-                System.out.println("площа = " + s);
+        System.out.println("perimetr = " + per);
+        System.out.println("ploshcha = " + s);
 
                 /*Define String variables name and address.
                 Output question "What is your name?"
