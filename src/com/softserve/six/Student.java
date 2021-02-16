@@ -1,6 +1,7 @@
 package com.softserve.six;
 
 import java.util.List;
+import java.util.ListIterator;
 
 public class Student {
     private String name = "NoName";
@@ -9,6 +10,14 @@ public class Student {
     public Student(String name, int cours) {
         this.name = name;
         this.cours = cours;
+    }
+
+    public Student() {
+
+    }
+
+    public int getCours() {
+        return cours;
     }
 
     @Override
@@ -20,6 +29,12 @@ public class Student {
     }
 
     public void printStudents(List l, int c){
-        System.out.println("");
+        ListIterator<Student> iterS = l.listIterator();
+        while (iterS.hasNext()) {
+            Student st = iterS.next();
+            if (st.getCours() == c) {
+                System.out.println(st);
+            }
+        }
     }
 }
