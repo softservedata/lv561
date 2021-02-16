@@ -9,7 +9,8 @@ public class MainPer {
         Person p4 = new Teacher("Vasya");
         Person p5 = new Student("Vitya");
         Person p6 = new Student("Roma");
-        Person[] arr =new Person[] {p1, p2, p3, p4, p5, p6};
+        Person p7 = new Teacher("Roma");
+        Person[] arr =new Person[] {p1, p2, p3, p4, p5, p6,p7};
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i].getName()+": ");
             arr[i].print();
