@@ -1,9 +1,24 @@
 package com.softserve.six;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Student {
+public class Student implements Comparable<Student> {
+    public static class ByName implements Comparator<Student> {
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.getName().compareTo(o2.getName());
+        }
+    }
+
+    public static class ByCours implements Comparator<Student> {
+        @Override
+        public int compare(Student o1, Student o2) {
+            return o1.getCours() - o2.getCours();
+        }
+    }
+
     private String name = "NoName";
     private int cours = 0;
 
@@ -16,13 +31,14 @@ public class Student {
         return name;
     }
 
+    public int getCours() {
+        return cours;
+    }
+
     public Student() {
 
     }
 
-    public int getCours() {
-        return cours;
-    }
 
     @Override
     public String toString() {
@@ -32,7 +48,7 @@ public class Student {
                 '}';
     }
 
-    public void printStudents(List l, int c){
+    public void printStudents(List l, int c) {
         ListIterator<Student> iterS = l.listIterator();
         while (iterS.hasNext()) {
             Student st = iterS.next();
@@ -40,5 +56,10 @@ public class Student {
                 System.out.println(st);
             }
         }
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return name.compareTo(o.getName());
     }
 }
