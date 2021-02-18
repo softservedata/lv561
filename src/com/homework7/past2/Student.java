@@ -1,4 +1,4 @@
-package com.homework7;
+package com.homework7.past2;
 import java.util.*;
 
 /*      Write class Student that provides information about the name of the student and his course.
@@ -77,14 +77,15 @@ public class Student  implements  Comparable<Student> {
 */
 
     public static void printStudents(List<Student> lstStr) {
-        List students = new ArrayList<Student>(lstStr);
+        List students = new ArrayList(lstStr);
         Iterator iterator = students.iterator();
         while (iterator.hasNext()) {
             String element = (String) iterator.next();
+            System.out.println("Original: students = " + students);
+            Collections.sort(students, new Student.ByNameAndCourse());
+            System.out.println("Sorter: students = " + element);
         }
-        System.out.println("Original: students = " + students);
-        Collections.sort(students, new Student.ByNameAndCourse());
-        System.out.println("Sorter: students = " + students);
+
     }
 }
 

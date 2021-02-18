@@ -1,4 +1,4 @@
-package com.homework7;
+package com.homework7.past2;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,6 +26,8 @@ public class AppList {
 
         System.out.println("\nSorted: lstStr = " + lstStr);
         Collections.sort(lstStr, new Student.ByCourse());
+
+
     }
 }
 
