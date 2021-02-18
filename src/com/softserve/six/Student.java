@@ -12,6 +12,10 @@ public class Student {
         this.cours = cours;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Student() {
 
     }
