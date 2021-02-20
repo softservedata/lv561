@@ -52,7 +52,7 @@ public class EmployeeMap {
 		System.out.println(
 				"\tPrint employeeMap using Iterator <Map.Entry<Integer,String>> itr = employeeMap.entrySet().iterator(): ");
 		for (Iterator<Map.Entry<Integer, String>> itr = employeeMap.entrySet().iterator(); itr.hasNext();) {
-			Map.Entry<Integer, String> entry = itr.next();
+			Map.Entry<Integer, String> entry = itr.next(); // чи вправильному місці визнвчена змінна, чи потрібно було визначити перед циклом???
 			System.out.println("Key - " + entry.getKey() + ", Value - " + entry.getValue());
 
 		}
