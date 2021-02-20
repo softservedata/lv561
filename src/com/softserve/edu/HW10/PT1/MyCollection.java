@@ -70,6 +70,7 @@ public class MyCollection {
 		Iterator<Integer> itr = myCollection.iterator();
 		while (itr.hasNext()) {
 			if (itr.next() > 20) {
+				
 				itr.remove();
 			}
 		}
