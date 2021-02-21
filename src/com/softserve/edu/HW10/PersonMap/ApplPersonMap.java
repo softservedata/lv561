@@ -18,7 +18,7 @@ import java.util.Set;
  *
  */
 
-public class PersonMap {
+public class ApplPersonMap {
 
 	public static void main(String[] args) {
 		// Create map personMap and add to it ten persons of type <String, String>
