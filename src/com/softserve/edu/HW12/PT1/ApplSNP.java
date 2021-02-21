@@ -48,6 +48,7 @@ public class ApplSNP {
 			System.out.print(st+":");
 		 */
 		
+		
 		//Output on the console:
 		//surnames and initials
 		//name
@@ -61,6 +62,8 @@ public class ApplSNP {
 		System.out.println("\tName, Middle name and Last name:");
 		System.out.println(lst.get(1)+" "+lst.get(2)+" "+lst.get(0) );
 		System.out.println("--------------------------------------------");
+		//StringBuilder sb = new StringBuilder();
+		
 		
 		
 	}
