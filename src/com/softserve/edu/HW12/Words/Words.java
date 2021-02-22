@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Words {
+	
     public List<String> enterSentence() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a sentence: ");
