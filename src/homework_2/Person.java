@@ -1,6 +1,5 @@
 package homework_2;
 
-import java.util.Date;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
