@@ -13,7 +13,5 @@ public class ApplWords {
 // bring the second word in reverse order
         StringBuilder sb = new StringBuilder(str.get(2));
         System.out.println("word \""+str.get(2)+"\" in reverse order: "+sb.reverse());
-
-
     }
 }
