@@ -38,10 +38,10 @@ public class Main {
     */
         System.out.println("Enter a sentence that contains the words between:");
         String input2 = sc.nextLine();
-        System.out.println(input2 +  "\n ----------------------------"));
+        System.out.println(input2 +  "\n ----------------------------");
         System.out.println("Convert all spaces, consecutive, one:\n" +
                 input2.replaceAll("( +)"," ") +
-                "\n ----------------------------"));
+                "\n ----------------------------");
     /*Implement a pattern for US currency: the first symbol "$",
       then any number of digits, dot and two digits after the dot.
       Enter the text from the console that contains several occurrences of US currency.
