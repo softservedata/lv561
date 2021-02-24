@@ -1,4 +1,4 @@
-package com.company;
+package com.hw012;
 import java.util.Scanner;
 
 public class Main {
