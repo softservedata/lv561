@@ -2,7 +2,7 @@ package com.hw013;
 import java.util.Scanner;
 
 public class Main {
-
+    
     public static void main(String[] args) {
 
 	    int c1, c2, c3;      //dolars per minute
