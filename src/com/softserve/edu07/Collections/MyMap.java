@@ -1,5 +1,8 @@
 package com.softserve.edu07.Collections;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class MyMap {
@@ -19,15 +22,42 @@ public class MyMap {
             String value = pairs.getValue();
             System.out.println(key+" : "+value);
         }
+        System.out.println("********************");
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter key to get value: ");
-        int key = scanner.nextInt();
+        int key = 0;
+        try {
+            key = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (containsKey(key, employeeMap)) {
             System.out.println("Employee name is: "+employeeMap.get(key));
         } else {
             System.out.println("You entered non-valid ID");
         }
+
+
+        System.out.print("Enter employee name: ");
+        String value = null;
+        try {
+            value = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (containsValue(value, employeeMap)) {
+            for (Map.Entry<Integer,String> pair : employeeMap.entrySet()) {
+                String surname = pair.getValue();
+                if (value.equals(surname)) {
+                    System.out.println("Employee's id: "+pair.getKey());
+                }
+            }
+        } else {
+            System.out.println("You entered unexisted surname");
+        }
+
 
 
 
@@ -46,4 +76,24 @@ public class MyMap {
         }
         return result;
     }
+
+    public static boolean containsValue(String value, Map<Integer,String> map) {
+        boolean result = false;
+        List<String> list = new ArrayList<>();
+        for (Map.Entry<Integer,String> pairs : map.entrySet()) {
+            list.add(pairs.getValue());
+        }
+        for (String surname: list) {
+            if (value.equals(surname)) {
+                result = true;
+            }
+        }
+        return result;
+    }
+
+
+
+
+
+
 }
