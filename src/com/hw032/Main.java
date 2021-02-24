@@ -78,7 +78,6 @@ public class Main {
         Dog Roki = new Dog("Roki", Breed.ENGLISH_BULLDOG.toString(), 5);
         Dog Vova = new Dog("Vova", Breed.ROTTWEILER.toString(), 8);
         Dog[] dogs = {Rex, Roki, Vova};
-        for ()
 
         System.out.println("Dog - " + Rex.name);
         System.out.println("Breed - " + Rex.breed);
