@@ -50,7 +50,7 @@ public class ApplStudent {
 			System.out.println("----------------------------------------------------");
 			
 			Student student = new Student();
-			student.printStudent(listStudent, 5); //чи правильно викликається метод student.printStudent(listStudent, 5); як це робити правильно.
+			student.printStudent(listStudent, 3); //чи правильно викликається метод student.printStudent(listStudent, 5); як це робити правильно.
 
 		}
 

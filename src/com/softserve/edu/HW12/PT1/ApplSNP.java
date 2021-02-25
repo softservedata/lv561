@@ -28,6 +28,7 @@ public class ApplSNP {
 		str = str + " " + sc.nextLine().trim();
 		System.out.print("Enter Patronymic: ");
 		str = str + " " + sc.nextLine().trim();
+		sc.close();
 
 		System.out.println(str);
 

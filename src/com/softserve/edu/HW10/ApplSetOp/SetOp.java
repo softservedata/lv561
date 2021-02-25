@@ -10,10 +10,11 @@ public class SetOp {
 		Set<Integer> result = new HashSet<>(set1);
 		// result = set1; Це не вірне рішення!!!!!!!!!!!!! result ,буде посилатись на
 		// set1;
-		for (Integer current : set2) {
+		result.addAll(set2);
+		/*for (Integer current : set2) {
 			if (!result.add(current))
 				System.out.println("Dublicate detected: element " + current + " do not united!");
-		}
+		}*/
 		return result;
 
 	}

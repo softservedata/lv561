@@ -16,6 +16,7 @@ public class Words {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a sentence: ");
         StringBuilder sentence = new StringBuilder(sc.nextLine().trim());
+        sc.close();
         List<String> words = new ArrayList<>();
         words.add(sentence.substring(sentence.lastIndexOf(" ") + 1, sentence.length()));
         int start = 0;

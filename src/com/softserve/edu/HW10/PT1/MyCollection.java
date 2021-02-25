@@ -46,6 +46,7 @@ public class MyCollection {
 		System.out.print(myCollection + "\n");
 
 		System.out.println("Size of myCollection: " + myCollection.size());
+		System.out.println("-----------------------------");
 
 		// Find and save in list newCollection all positions of element more than 5 in
 		// the collection.
@@ -60,7 +61,7 @@ public class MyCollection {
 			}
 			index++;
 		}
-		
+
 		// Print newCollection
 		System.out.println("newCollection: " + newCollection);
 
@@ -70,39 +71,50 @@ public class MyCollection {
 		Iterator<Integer> itr = myCollection.iterator();
 		while (itr.hasNext()) {
 			if (itr.next() > 20) {
-				
+
 				itr.remove();
 			}
 		}
 		System.out.print("myCollection after remove elemets greater then 20: " + myCollection + "\n");
+		System.out.println("-----------------------------");
 
 		// Insert elements 1, -3, -4 in positions 2, 8, 5.
-		
 
-		if (myCollection.size() >= 2)
-			myCollection.add(2, 1);
+		System.out.println("\tTry add elment 1 on position 2.");
+
+		if (myCollection.size() >= 1) {
+			System.out.println("\tAdded elment 1 on position 2.");
+			myCollection.add(1, 1);
+		} else
+			System.out.print(" Element do not added. myCollection is to short. size of mycollection is: "
+					+ myCollection.size() + "\n");
+		System.out.println("\tTry add elment -4 on position 5.");
+		if (myCollection.size() >= 4) {
+			System.out.println("\tAdded elment -4 on position 5.");
+			myCollection.add(4, -4);
+		} else
+			System.out.print(" Element do not added. myCollection is to short. size of mycollection is: "
+					+ myCollection.size() + "\n");
+		System.out.println("\tTry add elment -3 on position 8.");
+		if (myCollection.size() >= 7) {
+			System.out.println("\tAdded elment -3 on position 8.");
+			myCollection.add(7, -3);
+		}
 		else
-			System.out.print("myCollection is to short. size of mycollection is: " + myCollection.size() + "\n");
-		if (myCollection.size() >= 5)
-			myCollection.add(5, -4);
-		else
-			System.out.print("myCollection is to short. size of mycollection is: " + myCollection.size() + "\n");
-		if (myCollection.size() >= 8)
-			myCollection.add(8, -3);
-		else
-			System.out.print("myCollection is to short. Element do not added size of myCollection is: " + myCollection.size() + "\n");
-		
+			System.out.print(" Element do not added. myCollection is to short. size of mycollection is: "
+					+ myCollection.size() + "\n");
+
 		// Print result in the format: “position – xxx, value of element – xxx”
 		index = 0;
-		System.out.println("\nmyCollection : " );
-		for (Integer current:myCollection) {
-			System.out.println("position – "+ index+ " value of element – "+current);
+		System.out.println("\nmyCollection : ");
+		for (Integer current : myCollection) {
+			System.out.println("position – " + index + " value of element – " + current);
 			index++;
 		}
-		
-		//Sort and print collection
+
+		// Sort and print collection
 		Collections.sort(myCollection);
-		System.out.println("\nSorted myColection: "+myCollection);
+		System.out.println("\nSorted myColection: " + myCollection);
 
 	}
 
