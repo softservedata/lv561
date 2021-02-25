@@ -1,0 +1,23 @@
+package com.softserve.edu14io;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class TestFileOutput2 {
+	public static void main(String[] args) {
+		byte[] r = new byte[10];
+		String fileName = "d:/test.txt";
+		try (FileInputStream inFile = new FileInputStream(fileName)) {
+			System.out.println("Input file was opened.");
+			int bytesAv = inFile.available(); // Bytes count
+			System.out.println("Bytes count: " + bytesAv + " Bytes");
+			int count = inFile.read(r, 0, bytesAv);
+			System.out.println("Was readed: " + count + " bytes.");
+			System.out.println(r[0] + " " + r[1] + " " + r[2]);
+			System.out.println((char) r[0] + " " + (char) r[1] + " " + (char) r[2]);
+			System.out.println("Input stream was closed.");
+		} catch (IOException e) {
+			System.out.println("File Read/Write Error: " + fileName);
+		}
+	}
+}
