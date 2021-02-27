@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 public class ApplRegex {
 	public static void main(String[] args) {
 		// String pattern = "Now is the time";
-		String pattern = "[A-Za-z ]+";
-		//String pattern = "[a-z]+";
+		//String pattern = "[A-Za-z ]+";
+		String pattern = "[a-z]+";
 		//String pattern = "[theimeows]+";
 		//
 		String text = "Now is the time";
