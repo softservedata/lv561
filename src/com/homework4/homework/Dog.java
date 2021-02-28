@@ -1,5 +1,12 @@
-package com.homework4;
+package com.homework4.homework;
 
+/*
+ * Сreate class Dog with fields name, breed, age.
+ * Declare enum for field breed.
+ * Create 3 instances of type Dog.
+ * Check if there is no two dogs with the same name.
+ * Display the name and the kind of the oldest dog.
+*/
 public class Dog {
     private String name;
     private String breed;
@@ -50,4 +57,10 @@ public class Dog {
     public void setAge(int age) {
         this.age = age;
     }
+
+public static void main(String[]args){
+    Dog firstDog = new Dog("Jik", "AmericanGang", 10);
+    Dog secondDog = new Dog("Sam", "RoughFoxTerrier", 8);
+    Dog thirdDog = new Dog("Sharp", "IrishWolfhound", 2);
+}
 }
