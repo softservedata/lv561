@@ -1,6 +1,9 @@
 package com.homework8.homework;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,7 +11,8 @@ public class Main {
         /*Enter in the console sentence of five words.
         display the longest word in the sentence
         determine the number of its letters
-        bring the second word in reverse order*/
+        bring the second word in reverse order
+        */
 
 
         System.out.println("Enter sentence of five words - ");
@@ -42,12 +46,41 @@ public class Main {
         System.out.println("Convert all spaces, consecutive, one:\n" +
                 input2.replaceAll("( +)"," ") +
                 "\n ----------------------------");
-    /*Implement a pattern for US currency: the first symbol "$",
-      then any number of digits, dot and two digits after the dot.
-      Enter the text from the console that contains several occurrences of US currency.
-      Display all occurrences on the screen.
-    */
+        }
+        /*
+         * Implement a pattern for US currency: the first symbol "$",
+         * then any number of digits, dot and two digits after the dot.
+         * Enter the text from the console that contains several occurrences of US currency.
+         * Display all occurrences on the screen.
+         */
+    class Implement{
+        public static void implement(){
+            String pattern = "\\$(\\d*)(\\.\\d{2})";
+            Pattern p = Pattern.compile(pattern);
+            List<String> list = new ArrayList<>();
+            list.add("$89386.07");
+            list.add("$0374.00");
+            list.add("$01.0");
+            list.add("$2");
+            list.add("");
 
-
+            List<String> trueList = new ArrayList<>();
+            List<String> falceList = new ArrayList<>();
+            for(String num : list){
+                if(p.matcher(num).matches()){
+                    trueList.add(num);
+                }else{
+                    falceList.add(num);
+                }
+                System.out.println("Print trueList:");
+                for(String num : trueList){
+                    System.out.println("\n" + num);
+                }
+                System.out.println("Print falceList:");
+                for(String num : falceList){
+                    System.out.println("\n" + num);
+                }
+            }
+        }
     }
 }
