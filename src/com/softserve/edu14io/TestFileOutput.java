@@ -1,26 +1,22 @@
 package com.softserve.edu14io;
 
-import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class TestFileOutput {
 	public static void main(String[] args) {
-		byte[] r = new byte[10];
+		byte[] w = { 48, 49, 50 };
 		String fileName = "d:/test.txt";
-		FileInputStream inFile;
+		FileOutputStream outFile;
 		try {
-			inFile = new FileInputStream(fileName);
-			System.out.println("Input file was opened.");
-			int bytesAv = inFile.available(); // Bytes count
-			System.out.println("Bytes count: " + bytesAv + " Bytes");
-			int count = inFile.read(r, 0, bytesAv);
-			System.out.println("Was readed: " + count + " bytes.");
-			System.out.println(r[0] + " " + r[1] + " " + r[2]);
-			System.out.println((char) r[0] + " " + (char) r[1] + " " + (char) r[2]);
-			inFile.close();
-			System.out.println("Input stream was closed.");
+			outFile = new FileOutputStream(fileName);
+			System.out.println("Output file was opened.");
+			outFile.write(w);
+			System.out.println("Saved: " + w.length + " bytes.");
+			outFile.close();
+			System.out.println("Output stream was closed.");
 		} catch (IOException e) {
-			System.out.println("File Read/Write Error: " + fileName);
+			System.out.println("File Write Error: " + fileName);
 		}
 	}
 }
