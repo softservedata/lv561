@@ -7,24 +7,24 @@ package com.homework9.practical;
  * In the method main create an array of five plants. Check to work your exceptions.
  */
 
-import java.lang.reflect.Type;
 
-enum Color  {
-    RED, GREEN, YELLOW, BLUE, SILVER, DARK, SKY, BROWN, ORANGE, WHITE
-}
-enum Type {
 
-}
+//enum Color  {
+  //  RED, GREEN, YELLOW, BLUE, SILVER, DARK, SKY, BROWN, ORANGE, WHITE
+//}
+//enum Type {
+
+//}
 
 
 public class Plant {
     private int size;
-    private Color color;
-    private Type type;
+    private String color;
+    private String type;
 
-    public Plant(int size, Color color, Type type) {
+    public Plant(int size, String color, String type) {
         this.size = size;
-        this.Color = color;
+        this.color = color;
         this.type = type;
     }
 
@@ -36,31 +36,23 @@ public class Plant {
         this.size = size;
     }
 
-    public getColor() {
-        return Color;
+    public String getColor() {
+        return color;
     }
 
-    public void setColor() {
-        this.Color = color;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public Type getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return "Plant{" +
-                "size=" + size +
-                ", Color=" + Color +
-                ", type=" + type +
-                '}';
-            }
-            public static void main(String[] args)throws Exception{
+    public static void main(String[] args)throws Exception{
 
             }
     class ColorException{
