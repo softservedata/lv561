@@ -1,4 +1,5 @@
 package com.softserve.edu.HW13.PT2;
+
 /* 
  * Create a class Plant,
  * which includes fields
@@ -21,35 +22,81 @@ package com.softserve.edu.HW13.PT2;
  * @author Taras Krasitskyi
  *
  */
+class ColorException extends Exception {
+	public ColorException() {
+		super();
+	}
+
+	public ColorException(String msg) {
+		super(msg);
+
+	}
+
+}
+
+class TypeException extends Exception {
+	public TypeException() {
+		super();
+	}
+
+	public TypeException(String msg) {
+		super(msg);
+	}
+}
 
 public class Plant {
 	Type type;
 	Color color;
 	int size;
-	
+
 	public Plant() {
 		type = null;
 		color = null;
 		size = 0;
 	}
 	
-	public Color colorStrToEnum(String color) {
+	public Plant(String type, String color, int size) throws TypeException, ColorException {
+		this.type = typeStrToEnum(type);
+		this.color = colorStrToEnum(color);
+		this.size = size;
+	}
+
+	public Color colorStrToEnum(String color) throws ColorException {
+
 		switch (color.toLowerCase()) {
-		case "white": 
+		case "white":
 			return Color.WHITE;
-		
 		case "pink":
 			return Color.PINK;
-		
-		case "red": 
+		case "red":
 			return Color.RED;
-		
-		case "blue": 
+		case "blue":
 			return Color.BLUE;
-		
-
+		default:
+			throw new ColorException("ERROR: Input only White, Pink, Red, Blue color");
 		}
-		return null;
+
+	}
+
+	public Type typeStrToEnum(String type) throws TypeException {
+		switch (type.toLowerCase()) {
+		case "rose":
+			return Type.ROSE;
+		case "tulip":
+			return Type.TULIP;
+		case "orhid":
+			return Type.ORHID;
+		case "sunflower":
+			return Type.SUNFLOWER;
+		default:
+			throw new TypeException("ERROR: Input only Rose, Tulip, Orhid, Sunflower plant");
+		}
+
+	}
+
+	@Override
+	public String toString() {
+		return "Plant [type=" + type + ", color=" + color + ", size=" + size + "]";
 	}
 	
 
