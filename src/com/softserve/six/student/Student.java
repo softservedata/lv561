@@ -1,4 +1,4 @@
-package com.softserve.six;
+package com.softserve.six.student;
 
 import java.util.Comparator;
 import java.util.List;
