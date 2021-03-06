@@ -1,4 +1,4 @@
-package com.softserve.six.myCollection;
+package com.softserve.six.map;
 
 import java.io.BufferedReader;
 import java.io.IOException;
