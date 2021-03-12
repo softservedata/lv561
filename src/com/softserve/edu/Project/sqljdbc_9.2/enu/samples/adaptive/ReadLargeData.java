@@ -27,7 +27,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.microsoft.sqlserver.jdbc.SQLServerStatement;
+//import com.microsoft.sqlserver.jdbc.SQLServerStatement;
 
 public class ReadLargeData {
 
@@ -55,9 +55,9 @@ public class ReadLargeData {
             String SQL = "SELECT Title, DocumentSummary FROM Production.Document";
 
             // Display the response buffering mode.
-            SQLServerStatement SQLstmt = (SQLServerStatement) stmt;
-            System.out.println("Response buffering mode is: " + SQLstmt.getResponseBuffering());
-            SQLstmt.close();
+            //SQLServerStatement SQLstmt = (SQLServerStatement) stmt;
+           // System.out.println("Response buffering mode is: " + SQLstmt.getResponseBuffering());
+            //SQLstmt.close();
 
             // Get the updated data from the database and display it.
             ResultSet rs = stmt.executeQuery(SQL);
