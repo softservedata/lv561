@@ -8,24 +8,26 @@ package com.homework9.practical;
  */
 
 
-
-//enum Color  {
-  //  RED, GREEN, YELLOW, BLUE, SILVER, DARK, SKY, BROWN, ORANGE, WHITE
-//}
-//enum Type {
-
-//}
+enum Color  {
+    RED, GREEN, YELLOW, BLUE, SILVER, DARK, SKY, BROWN, ORANGE, WHITE
+}
+enum Type {
+    FLOWER, VEGETABLES, FRUIT
+}
 
 
 public class Plant {
     private int size;
-    private String color;
-    private String type;
+    private Color color;
+    private Type type;
 
-    public Plant(int size, String color, String type) {
+    public Plant(int size, Color color, Type type) {
         this.size = size;
         this.color = color;
         this.type = type;
+    }
+
+    public Plant() {
     }
 
     public int getSize() {
@@ -36,30 +38,49 @@ public class Plant {
         this.size = size;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
-    public static void main(String[] args)throws Exception{
-
-            }
-    class ColorException{
-
+    @Override
+    public String toString() {
+        return "Plant{" +
+                "size=" + size +
+                ", color=" + color +
+                ", type=" + type +
+                '}';
     }
-    class TypeException{
+    class ColorException extends Exception{
+        public ColorException(String smg){
+            super(smg);
+
+        }
+    }
+        class TypeException extends  Exception{
+            public TypeException(String smg){
+                super(smg);
+            }
+        }
+
+    public static void main (String[] args) throws ColorException, TypeException {
+
+            Plant p1 = new Plant(1, Color.ORANGE, Type.FLOWER);
+            Plant p2 = new Plant(2, Color.BROWN, Type.FRUIT);
+            Plant p3 = new Plant(3, Color.GREEN, Type.VEGETABLES);
 
     }
 }
+
 
