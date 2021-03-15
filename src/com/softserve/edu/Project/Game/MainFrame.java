@@ -33,16 +33,22 @@ public class MainFrame extends JFrame {
     private JButton btn33 = new JButton();
     private JPanel grid = new JPanel();
     private int[][] arr = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+    private int chckWin = 0;
+    private int xchckWin = 0;
+
+    private int chckRow = 0;
+    private int chckColumn = 0;
+    private int chckDiagL = 0;
+    private int chckDiagR = 0;
+
 
     public void setArr() {
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++){
+            for (int j = 0; j < 3; j++) {
                 this.arr[i][j] = 0;
             }
         }
-        //this.arr = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
     }
-    //  private int[][] arr = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 
 
     public JButton getBtn11() {
@@ -83,7 +89,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame() {
 
-        JFrame mainFrame = new JFrame("Crosses-Zeros");
+        JFrame mainFrame = new JFrame("Tic-Tac-Toe");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // setSize(500, 500);
         mainFrame.setPreferredSize(new Dimension(300, 300));
@@ -96,7 +102,7 @@ public class MainFrame extends JFrame {
         Action action = new ClickAction();
 
         btn11.setAction(action);
-        ;
+
         btn11.setFont(fnt);
         btn11.setName("11");
         grid.add(btn11);
@@ -159,15 +165,14 @@ public class MainFrame extends JFrame {
         grid.add(dialogButton);
         JPanel flow = new JPanel(new FlowLayout(FlowLayout.CENTER));
         flow.add(grid);
-        // Получение панели содержимого
+
         Container container = dialog.getContentPane();
-        // Размещение панели с кнопками внизу справа
+
         container.add(flow, BorderLayout.SOUTH);
 
         dialogButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
 
                 dialog.dispose();
                 JDialog newGame = CreateDialogNewGame("Start new Game?", "Do you want start new game?", true);
@@ -180,7 +185,7 @@ public class MainFrame extends JFrame {
 
         dialog.setLocationRelativeTo(null);
         dialog.setSize(350, 100);
-        // dialog.pack();
+
         return dialog;
 
     }
@@ -201,9 +206,9 @@ public class MainFrame extends JFrame {
         grid.add(gridButton);
         JPanel flow = new JPanel(new FlowLayout(FlowLayout.CENTER));
         flow.add(grid, BorderLayout.CENTER);
-        // Получение панели содержимого
+
         Container container = newGame.getContentPane();
-        // Размещение панели с кнопками внизу справа
+
         container.add(flow);
         noButton.addActionListener(new ActionListener() {
             @Override
@@ -214,15 +219,51 @@ public class MainFrame extends JFrame {
         yesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                newGame.dispose();
+                initGame();
 
             }
         });
 
         newGame.setLocationRelativeTo(null);
         newGame.setSize(350, 100);
-        // dialog.pack();
         return newGame;
 
+    }
+
+    public void initGame() {
+        Color bg = new Color(238, 238, 238);
+        getBtn11().setText("");
+        getBtn11().setBackground(bg);
+
+        getBtn12().setText("");
+        getBtn12().setBackground(bg);
+
+        getBtn13().setText("");
+        getBtn13().setBackground(bg);
+
+        getBtn21().setText("");
+        getBtn21().setBackground(bg);
+
+        getBtn22().setText("");
+        getBtn22().setBackground(bg);
+
+        getBtn23().setText("");
+        //  getBtn23().
+        getBtn23().setBackground(bg);
+
+        getBtn31().setText("");
+        getBtn31().setBackground(bg);
+
+        getBtn32().setText("");
+        getBtn32().setBackground(bg);
+
+        getBtn33().setText("");
+        getBtn33().setBackground(bg);
+
+        setArr();
+        chckWin = 0;
+        xchckWin = 0;
     }
 
     class ClickAction extends AbstractAction {
@@ -232,22 +273,19 @@ public class MainFrame extends JFrame {
          */
         private static final long serialVersionUID = 1L;
 
-
         @Override
         public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
             JButton btn = (JButton) e.getSource();
+            //System.out.println(btn.getBackground());
             JButton btnTmp = new JButton();
             int index = Integer.parseInt(btn.getName());// Index of button. Start from 11
             int indexC = 0; // for random index free random free button
-            boolean isNext = true; // Check existing next step
-            int chckWin = 0;
-            int xchckWin = 0;
 
-            if (btn.getText() == null) { // Player set 0 if field is empty
+            if (btn.getText() == null || btn.getText().equals("")) { // Player set 0 if field is empty
                 arr[((index / 10) - 1)][((index % 10) - 1)] = 10;
                 btn.setText("O");
-
+                chckWin = 0;
                 if ((((index / 10) - 1) == 0 || ((index / 10) - 1) == 2) && (((index % 10) - 1) == 0 || ((index % 10) - 1) == 2)) {
                     for (int i = 0; i < 3; i++) {
                         chckWin = chckWin + arr[i][i];
@@ -260,12 +298,13 @@ public class MainFrame extends JFrame {
                             btnTmp.setBackground(Color.red);
 
                         }
-                        JDialog dialogWindow = createDialog("Game Over", "O win!!!", true);
+                        JDialog dialogWindow = createDialog("Game Over", "ZEROS win!!!", true);
                         dialogWindow.setLocationRelativeTo(null);
                         dialogWindow.setVisible(true);
                         return;
-
                     }
+
+
 
                     chckWin = 0;
                     for (int i = 2; i >= 0; i--) {
@@ -279,7 +318,7 @@ public class MainFrame extends JFrame {
                             btnTmp.setBackground(Color.red);
 
                         }
-                        JDialog dialogWindow = createDialog("Game Over", "O win!!!", true);
+                        JDialog dialogWindow = createDialog("Game Over", "ZEROS win!!!", true);
                         dialogWindow.setLocationRelativeTo(null);
                         dialogWindow.setVisible(true);
                         return;
@@ -300,10 +339,22 @@ public class MainFrame extends JFrame {
                             btnTmp.setBackground(Color.red);
 
                         }
-                        JDialog dialogWindow = createDialog("Game Over", "Zero win!!!", true);
+                        JDialog dialogWindow = createDialog("Game Over", "ZEROS win!!!", true);
                         dialogWindow.setLocationRelativeTo(null);
                         dialogWindow.setVisible(true);
                         return;
+
+                    }
+
+                    // Перевірка чи в рядку є вже два Нулика, indexC вільної кнопки
+                    if(chckWin == 20){
+                        for(int l = 0; l < 3; l++){
+                            if (arr[l][((index % 10) - 1)] == 0 ){
+                                indexC = 3*l+ ((index % 10) - 1);
+                            }
+
+
+                        }
 
                     }
                 }
@@ -322,7 +373,7 @@ public class MainFrame extends JFrame {
                             btnTmp.setBackground(Color.red);
 
                         }
-                        JDialog dialogWindow = createDialog("Game Over", "Zero win!!!", true);
+                        JDialog dialogWindow = createDialog("Game Over", "ZEROS win!!!", true);
                         dialogWindow.setLocationRelativeTo(null);
                         dialogWindow.setVisible(true);
                         return;
@@ -335,6 +386,9 @@ public class MainFrame extends JFrame {
 
                 System.out.println("ButtonName: " + btn.getName());
             }
+            else{
+                return;
+            }
 //Computers step
             // Set priority. element [1][1] have higthest priority
             List<Integer> arrayRnd = new ArrayList<>();
@@ -344,9 +398,24 @@ public class MainFrame extends JFrame {
                 indexC = 3 * 1 + 1;// number element in array is 3*i+j
                 btnTmp = (JButton) grid.getComponent(indexC);
                 btnTmp.setText("X");
-                isNext = false;
+
 
             } else {
+
+                int indxI = 0;
+                int indxJ = 0;
+
+                if(indexC!=0){
+                    btnTmp = (JButton) grid.getComponent((indexC));
+                    btnTmp.setText("X");
+
+
+                }
+
+
+
+
+
                 // Define index button component on frame
 
                 for (int i = 0; i < 3; i++) {
@@ -359,8 +428,7 @@ public class MainFrame extends JFrame {
                     }
                 }
 
-                int indxI = 0;
-                int indxJ = 0;
+
                 if (arrayRnd.size() != 0) {
                     indexC = new Random().nextInt(arrayRnd.size());// random index in array of indexes of free cell
                     System.out.println(
@@ -461,9 +529,6 @@ public class MainFrame extends JFrame {
                     return;
 
                 }
-
-                isNext = false;
-
             }
 
             for (int i = 0; i < 3; i++) {

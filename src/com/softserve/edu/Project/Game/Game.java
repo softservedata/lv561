@@ -3,21 +3,27 @@ package com.softserve.edu.Project.Game;
 
 
 public class Game {
-	
-	public void initGame(MainFrame newGame) {
+	private MainFrame game = new MainFrame();
 
-		newGame.getBtn11().setText("");
-		newGame.getBtn12().setText("");
-		newGame.getBtn13().setText("");
+	public MainFrame getGame() {
+		return game;
+	}
 
-		newGame.getBtn21().setText("");
-		newGame.getBtn22().setText("");
-		newGame.getBtn23().setText("");
+	public void initGame() {
 
-		newGame.getBtn31().setText("");
-		newGame.getBtn32().setText("");
-		newGame.getBtn33().setText("");
-		newGame.setArr();
+		game.getBtn11().setText("");
+
+		game.getBtn12().setText("");
+		game.getBtn13().setText("");
+
+		game.getBtn21().setText("");
+		game.getBtn22().setText("");
+		game.getBtn23().setText("");
+
+		game.getBtn31().setText("");
+		game.getBtn32().setText("");
+		game.getBtn33().setText("");
+		game.setArr();
 	}
 
 }
