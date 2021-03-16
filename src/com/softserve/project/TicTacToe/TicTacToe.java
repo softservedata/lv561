@@ -143,8 +143,4 @@ public class TicTacToe {
         return !result;
     }
 
-    public static void main(String[] args) {
-        TicTacToe game = new TicTacToe();
-        game.ttt();
-    }
 }

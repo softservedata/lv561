@@ -2,6 +2,7 @@ package com.softserve.project.Encryption;
 
 import java.nio.charset.StandardCharsets;
 
+
 public class Encrypt {
     private String text;
 
@@ -21,20 +22,20 @@ public class Encrypt {
         byte[] arr1 = enc.text.getBytes(StandardCharsets.UTF_8);
         for (int i = 0; i < arr1.length; i++) {
             if (i % 2 == 1) arr1[i] = (byte) (arr1[i] + 1);
-            else arr1[i] = (byte) (arr1[i] + 2);
+            else arr1[i] = (byte) (arr1[i] - 1);
         }
         enc.setText(new String(arr1));
-        System.out.println("Encryption done");
     }
 
     protected void unEncr(Encrypt enc) {
         byte[] arr1 = enc.text.getBytes(StandardCharsets.UTF_8);
         for (int i = 0; i < arr1.length; i++) {
-            if (i % 2 == 1) arr1[i] = (byte) (arr1[i] - 1);
-            else arr1[i] = (byte) (arr1[i] - 2);
+            if (i % 2 != 1) {
+                arr1[i] = (byte) (arr1[i] + 1);
+            } else {
+                arr1[i] = (byte) (arr1[i] - 1);
+            }
         }
         enc.setText(new String(arr1));
-        System.out.println("Unencryption done");
-
     }
 }
