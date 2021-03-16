@@ -1,4 +1,4 @@
-package com.conditionStatements;
+package com.percifalll._04_condition_statements.practical;
 
 public class Product {
     private String name;

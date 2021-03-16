@@ -1,6 +1,5 @@
-package com.arrays.loops;
+package com.percifalll._05_arrays_loops.practical;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Employee {

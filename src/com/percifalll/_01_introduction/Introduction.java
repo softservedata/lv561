@@ -1,11 +1,27 @@
-package com.odmen;
+package com.percifalll._01_introduction;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
-
+/**
+ * Create console application. In method main() write code for solving next tasks:
+ *
+ * 1) Flower bed is shaped like a circle.
+ *    Calculate the perimeter and area by entering the radius.
+ *    Output obtained results.
+ *
+ * 2) Define String variables name and address.
+ *    Output question "What is your name?"
+ *    Read the value name and output next question: “Where are you live, (name)?".
+ *    Read address and write whole information.
+ *
+ * 3) Phone calls from three different countries are с1, с2 and с3 standard units per minute.
+ *    Talks continued t1, t2 and t3 minutes.
+ *    How much computer will count for each call separately and all talk together?
+ *    Input all source data from console, make calculations and output to the screen.
+ */
+public class Introduction {
     public static void main(String[] args) throws IOException {
         //first task
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -33,12 +49,18 @@ public class Main {
         computerCounts = new double [3];
 
         System.out.println("Enter units per minute value:");
-        for (int i = 0; i < unitsPerMinute.length; i++){ unitsPerMinute[i] = Double.parseDouble(bufferedReader.readLine()); }
+        for (int i = 0; i < unitsPerMinute.length; i++){
+            unitsPerMinute[i] = Double.parseDouble(bufferedReader.readLine());
+        }
 
         System.out.println("Enter phone durations:");
-        for (int i = 0; i < callsDuration.length; i++){ callsDuration[i] = Double.parseDouble(bufferedReader.readLine());}
+        for (int i = 0; i < callsDuration.length; i++){
+            callsDuration[i] = Double.parseDouble(bufferedReader.readLine());
+        }
 
-        for (int i = 0; i < computerCounts.length; i++){ computerCounts[i] = singleCount(unitsPerMinute[i], callsDuration[i]); }
+        for (int i = 0; i < computerCounts.length; i++){
+            computerCounts[i] = singleCount(unitsPerMinute[i], callsDuration[i]);
+        }
         generalCount = generalCount(computerCounts);
 
         System.out.printf(
@@ -48,15 +70,15 @@ public class Main {
                         "\tthird\t%3.2f\n" +
                         "\tGeneral\t%3.2f\n",
                 computerCounts[0], computerCounts[1], computerCounts[2], generalCount
-                );
+        );
     }
 
-    /**
+    /*
      * additional method for measuring
      */
     private static void measure(){ System.out.println("\n\t***\n"); }
 
-    /**
+    /*
      * first task
      */
     public static double circlePerimeter(double radius){
@@ -66,7 +88,7 @@ public class Main {
         return Math.PI * radius * radius;
     }
 
-    /**
+    /*
      * second task
      */
     public static void stringInsertion(BufferedReader bufferedReader) throws IOException{
@@ -79,7 +101,7 @@ public class Main {
         System.out.printf("Your name is %s\nYou live in %s\n", name, address);
     }
 
-    /**
+    /*
      * third task
      */
     public static double singleCount(double c, double t){

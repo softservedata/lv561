@@ -1,4 +1,4 @@
-package com.conditionStatements;
+package com.percifalll._04_condition_statements.practical;
 
 import java.util.Scanner;
 

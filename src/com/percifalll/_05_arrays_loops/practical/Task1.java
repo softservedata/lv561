@@ -1,4 +1,4 @@
-package com.arrays.loops;
+package com.percifalll._05_arrays_loops.practical;
 
 import java.util.Arrays;
 import java.util.Random;
