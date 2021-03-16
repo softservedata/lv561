@@ -375,6 +375,8 @@ public class MainFrame extends JFrame {
             int index = Integer.parseInt(btn.getName());// Index of button. Start from 11
             int indexC = 0; // for random index free random free button
             boolean xNext = true;
+            int indxI = 0;
+            int indxJ = 0;
 
             if (btn.getText() == null || btn.getText().equals("")) { // Player set 0 if field is empty
                 arr[((index / 10) - 1)][((index % 10) - 1)] = 10;
@@ -386,7 +388,7 @@ public class MainFrame extends JFrame {
 					if(chckG!=0) {
 						
 					}*/
-                // Перевірка діагоналі ->
+                // Перевірка діагоналі ноликів->
                 chckWin = 0;
                 if ((((index / 10) - 1) == 0 || ((index / 10) - 1) == 2) && (((index % 10) - 1) == 0 || ((index % 10) - 1) == 2)) {
                     for (int i = 0; i < 3; i++) {
@@ -407,7 +409,10 @@ public class MainFrame extends JFrame {
                         return;
                     }
 
-                    // Перевірка діагоналі <-
+
+
+
+                    // Перевірка діагоналі ноликів <-
                     chckWin = 0;
                     for (int i = 2; i >= 0; i--) {
                         chckWin = chckWin + arr[i][Math.abs(i - 2)];
@@ -427,7 +432,7 @@ public class MainFrame extends JFrame {
 
                     }
                 }
-                // перевірка стовпчика
+                // перевірка стовпчика ноликів
                 chckWin = 0;
                 for (int i = 0; i < 3; i++) {
                     System.out.println("chckWin = chckWin + arr[" + i + "][" + ((index % 10) - 1) + "] - " + chckWin
@@ -448,8 +453,107 @@ public class MainFrame extends JFrame {
                     return;
 
                 }
+                // перевірка двух нуликів в стовпці
+                if (chckWin == 20){
+                    for(int i = 0; i<3; i++ ){
+                        if(arr[i][((index % 10) - 1)] == 0){ //на місце порожнього елемента в рядку ставиться хрестик
+                            arr[i][((index % 10) - 1)] = 1;
+                            indxI = i;
+                            indxJ = ((index % 10) - 1);
+                            btnTmp = (JButton) grid.getComponent(3*i+((index % 10) - 1));// random free corner button
+                            btnTmp.setText("X");
+                            xNext = false;
 
-                // перевірка рядка
+                            xchckWin = 0;
+                            if ((indxI == 0 || indxI == 2) && (indxJ == 0 || indxJ == 2)) {
+                                for (int n = 0; n < 3; n++) {
+                                    xchckWin = xchckWin + arr[n][n];
+                                }
+
+                                if (xchckWin == 3) {
+                                    for (int k = 0; k < 3; k++) {
+
+                                        btnTmp = (JButton) grid.getComponent((3 * k + k));
+                                        btnTmp.setBackground(Color.red);
+
+                                    }
+                                    JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                    dialogWindow.setLocationRelativeTo(null);
+                                    dialogWindow.setVisible(true);
+                                    return;
+                                }
+
+                                // перевірка діагоналі хрестиків <-
+                                xchckWin = 0;
+                                for (int n = 0; n < 3; n++) {
+
+                                    xchckWin = xchckWin + arr[n][Math.abs(n - 2)];
+                                }
+                                System.out.println("xchckWin = " + xchckWin);
+
+                                if (xchckWin == 3) {
+                                    for (int k = 2; k >= 0; k--) {
+                                        btnTmp = (JButton) grid.getComponent((2 * k + 2));
+                                        btnTmp.setBackground(Color.red);
+                                    }
+                                    JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                    dialogWindow.setLocationRelativeTo(null);
+                                    dialogWindow.setVisible(true);
+                                    return;
+                                }
+
+                            }
+
+                            // перевірка сповчика для Х
+
+                            xchckWin = 0;
+                            for (int n = 0; n < 3; n++) {
+                                System.out.println("X chckWin = XchckWin + arr[" + indxI + "][" + indxJ + "] - "
+                                        + xchckWin + "+" + arr[n][((index % 10) - 1)]);
+                                xchckWin = xchckWin + arr[n][indxJ];
+                                System.out.println("X chckWin = " + xchckWin);
+                                if (xchckWin == 3) {
+                                    for (int k = 0; k < 3; k++) {
+
+                                        btnTmp = (JButton) grid.getComponent((3 * k + indxJ));
+                                        btnTmp.setBackground(Color.red);
+
+                                    }
+                                    JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                    dialogWindow.setLocationRelativeTo(null);
+                                    dialogWindow.setVisible(true);
+                                    return;
+
+                                }
+                            }
+                            // перевірка рядка для Х
+                            xchckWin = 0;
+                            for (int j = 0; j < 3; j++) {
+                                System.out.println("X chckWin = xchckWin + arr[" + indxI + "][" + j + "] - " + xchckWin
+                                        + "+" + arr[((index / 10) - 1)][j]);
+                                xchckWin = xchckWin + arr[indxI][j];
+
+                                System.out.println("X chckWin = " + xchckWin);
+                                if (xchckWin == 3) {
+                                    for (int k = 0; k < 3; k++) {
+
+                                        btnTmp = (JButton) grid.getComponent((3 * indxI) + k);
+                                        btnTmp.setBackground(Color.red);
+
+                                    }
+                                    JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                    dialogWindow.setLocationRelativeTo(null);
+                                    dialogWindow.setVisible(true);
+                                    return;
+
+                                }
+                            }
+
+                        }
+                   }
+                }
+
+                // перевірка рядка ноликів
                 chckWin = 0;
                 for (int j = 0; j < 3; j++) {
                     System.out.println("chckWin = chckWin + arr[" + ((index / 10) - 1) + "][" + j + "] - " + chckWin
@@ -460,7 +564,7 @@ public class MainFrame extends JFrame {
                 if (chckWin == 30) {
                     for (int k = 0; k < 3; k++) {
 
-                        btnTmp = (JButton) grid.getComponent((3 * ((index / 10) - 1)) +k);
+                        btnTmp = (JButton) grid.getComponent((3 * ((index / 10) - 1)) + k);
                         btnTmp.setBackground(Color.red);
 
                     }
@@ -468,166 +572,263 @@ public class MainFrame extends JFrame {
                     dialogWindow.setLocationRelativeTo(null);
                     dialogWindow.setVisible(true);
                     return;
+                }
+                // перевірка двух нуликів в рядку
+                if (chckWin == 20){
+                    for (int j = 0; j<3; j++){
+                      if (  arr[((index / 10) - 1)][j]==0) {
+                          arr[((index / 10) - 1)][j]= 1;
+
+                          indxI = ((index / 10) - 1);
+                          indxJ = j;
+                          btnTmp = (JButton) grid.getComponent(3*((index / 10) - 1) + j );
+                          btnTmp.setText("X");
+                          xNext = false;
+
+                          xchckWin = 0;
+                          if ((indxI == 0 || indxI == 2) && (indxJ == 0 || indxJ == 2)) {
+                              for (int n = 0; n < 3; n++) {
+                                  xchckWin = xchckWin + arr[n][n];
+                              }
+
+                              if (xchckWin == 3) {
+                                  for (int k = 0; k < 3; k++) {
+
+                                      btnTmp = (JButton) grid.getComponent((3 * k + k));
+                                      btnTmp.setBackground(Color.red);
+
+                                  }
+                                  JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                  dialogWindow.setLocationRelativeTo(null);
+                                  dialogWindow.setVisible(true);
+                                  return;
+                              }
+
+                              // перевірка діагоналі хрестиків <-
+                              xchckWin = 0;
+                              for (int n = 0; n < 3; n++) {
+
+                                  xchckWin = xchckWin + arr[n][Math.abs(n - 2)];
+                              }
+                              System.out.println("xchckWin = " + xchckWin);
+
+                              if (xchckWin == 3) {
+                                  for (int k = 2; k >= 0; k--) {
+                                      btnTmp = (JButton) grid.getComponent((2 * k + 2));
+                                      btnTmp.setBackground(Color.red);
+                                  }
+                                  JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                  dialogWindow.setLocationRelativeTo(null);
+                                  dialogWindow.setVisible(true);
+                                  return;
+                              }
+
+                          }
+
+                          // перевірка сповчика для Х
+
+                          xchckWin = 0;
+                          for (int n = 0; n < 3; n++) {
+                              System.out.println("X chckWin = XchckWin + arr[" + indxI + "][" + indxJ + "] - "
+                                      + xchckWin + "+" + arr[n][((index % 10) - 1)]);
+                              xchckWin = xchckWin + arr[n][indxJ];
+                              System.out.println("X chckWin = " + xchckWin);
+                              if (xchckWin == 3) {
+                                  for (int k = 0; k < 3; k++) {
+
+                                      btnTmp = (JButton) grid.getComponent((3 * k + indxJ));
+                                      btnTmp.setBackground(Color.red);
+
+                                  }
+                                  JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                  dialogWindow.setLocationRelativeTo(null);
+                                  dialogWindow.setVisible(true);
+                                  return;
+
+                              }
+                          }
+                          // перевірка рядка для Х
+                          xchckWin = 0;
+                          for (int jj = 0; jj < 3; jj++) {
+                              System.out.println("X chckWin = xchckWin + arr[" + indxI + "][" + jj + "] - " + xchckWin
+                                      + "+" + arr[((index / 10) - 1)][jj]);
+                              xchckWin = xchckWin + arr[indxI][jj];
+
+                              System.out.println("X chckWin = " + xchckWin);
+                              if (xchckWin == 3) {
+                                  for (int k = 0; k < 3; k++) {
+
+                                      btnTmp = (JButton) grid.getComponent((3 * indxI) + k);
+                                      btnTmp.setBackground(Color.red);
+
+                                  }
+                                  JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                  dialogWindow.setLocationRelativeTo(null);
+                                  dialogWindow.setVisible(true);
+                                  return;
+
+                              }
+                          }
+
+                      }
+
+                    }
 
                 }
 
-            } else {
+
+            } else {// не залишилось ходів для ноликів
+                JDialog dialogWindow = createDialog("Game Over", "Nobady win!!!", true);
+                dialogWindow.setLocationRelativeTo(null);
+                dialogWindow.setVisible(true);
                 System.out.println("check return: ");
                 return;
             }
 
 
-        //Computers step
-        // Set priority. element [1][1] have higthest priority
-        List<Integer> arrayRnd = new ArrayList<>();
-        List<String> indxButton = new ArrayList<>();
+            //Computers step
+            // Set priority. element [1][1] have higthest priority
+            List<Integer> arrayRnd = new ArrayList<>();
+            List<String> indxButton = new ArrayList<>();
             System.out.println("start Crosses");
-            if(arr[1][1]==0)
+            if (arr[1][1] == 0) {
+                arr[1][1] = 1;
+                indexC = 3 * 1 + 1;// number element in array is 3*i+j
+                btnTmp = (JButton) grid.getComponent(indexC);
+                btnTmp.setText("X");
 
-        {
-            arr[1][1] = 1;
-            indexC = 3 * 1 + 1;// number element in array is 3*i+j
-            btnTmp = (JButton) grid.getComponent(indexC);
-            btnTmp.setText("X");
+            } else {
+                if (xNext) {
+                    System.out.println("Enete if xNext==true");
 
-        } else
+                    indxI = 0;
+                    indxJ = 0;
 
-        {
-            if (xNext) {
-                System.out.println("Enete if xNext==true");
+                    // Define index button component on frame
 
-                int indxI = 0;
-                int indxJ = 0;
-
-                // Define index button component on frame
-
-                for (int i = 0; i < 3; i++) {
-                    for (int j = 0; j < 3; j++) {
-                        if (arr[i][j] == 0) {
-                            arrayRnd.add(3 * i + j);
-                            indxButton.add(String.valueOf(i) + String.valueOf(j));
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            if (arr[i][j] == 0) {
+                                arrayRnd.add(3 * i + j);
+                                indxButton.add(String.valueOf(i) + String.valueOf(j));
+                            }
                         }
                     }
-                }
 
-                if (arrayRnd.size() != 0) {
-                    indexC = new Random().nextInt(arrayRnd.size());// random index in array of indexes of free
-                    // cell
-                    System.out.println("Random().nextInt(arrayRnd.length): " + arrayRnd.get(indexC)
-                            + "\nIndexC: " + indexC);
-                    btnTmp = (JButton) grid.getComponent(arrayRnd.get(indexC));// random free corner button
-                    btnTmp.setText("X");
-                    indxI = Integer.parseInt(indxButton.get(indexC).substring(0, 1));
-                    indxJ = Integer.parseInt(indxButton.get(indexC).substring(1));
-                    arr[indxI][indxJ] = 1;
+                    if (arrayRnd.size() != 0) {
+                        indexC = new Random().nextInt(arrayRnd.size());// random index in array of indexes of free
+                        // cell
+                        System.out.println("Random().nextInt(arrayRnd.length): " + arrayRnd.get(indexC)
+                                + "\nIndexC: " + indexC);
+                        btnTmp = (JButton) grid.getComponent(arrayRnd.get(indexC));// random free corner button
+                        btnTmp.setText("X");
+                        indxI = Integer.parseInt(indxButton.get(indexC).substring(0, 1));
+                        indxJ = Integer.parseInt(indxButton.get(indexC).substring(1));
+                        arr[indxI][indxJ] = 1;
 
-                    // ----перевірка діагоналі -> X-player
-                    xchckWin = 0;
-                    if ((indxI == 0 || indxI == 2) && (indxJ == 0 || indxJ == 2)) {
-                        for (int i = 0; i < 3; i++) {
-                            xchckWin = xchckWin + arr[i][i];
-                        }
-
-                        if (xchckWin == 3) {
-                            for (int k = 0; k < 3; k++) {
-
-                                btnTmp = (JButton) grid.getComponent((3 * k + k));
-                                btnTmp.setBackground(Color.red);
-
+                        // ----перевірка діагоналі -> X-player
+                        xchckWin = 0;
+                        if ((indxI == 0 || indxI == 2) && (indxJ == 0 || indxJ == 2)) {
+                            for (int i = 0; i < 3; i++) {
+                                xchckWin = xchckWin + arr[i][i];
                             }
-                            JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
-                            dialogWindow.setLocationRelativeTo(null);
-                            dialogWindow.setVisible(true);
-                            return;
+
+                            if (xchckWin == 3) {
+                                for (int k = 0; k < 3; k++) {
+
+                                    btnTmp = (JButton) grid.getComponent((3 * k + k));
+                                    btnTmp.setBackground(Color.red);
+
+                                }
+                                JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                dialogWindow.setLocationRelativeTo(null);
+                                dialogWindow.setVisible(true);
+                                return;
+                            }
+
+                            // перевірка діагоналі хрестиків <-
+                            xchckWin = 0;
+                            for (int i = 0; i < 3; i++) {
+
+                                xchckWin = xchckWin + arr[i][Math.abs(i - 2)];
+                            }
+                            System.out.println("xchckWin = " + xchckWin);
+
+                            if (xchckWin == 3) {
+                                for (int k = 2; k >= 0; k--) {
+                                    btnTmp = (JButton) grid.getComponent((2 * k + 2));
+                                    btnTmp.setBackground(Color.red);
+                                }
+                                JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                dialogWindow.setLocationRelativeTo(null);
+                                dialogWindow.setVisible(true);
+                                return;
+                            }
+
                         }
 
-                        // перевірка діагоналі <-
+                        // перевірка сповчика для Х
+
                         xchckWin = 0;
                         for (int i = 0; i < 3; i++) {
+                            System.out.println("X chckWin = XchckWin + arr[" + indxI + "][" + indxJ + "] - "
+                                    + xchckWin + "+" + arr[i][((index % 10) - 1)]);
+                            xchckWin = xchckWin + arr[i][indxJ];
+                            System.out.println("X chckWin = " + xchckWin);
+                            if (xchckWin == 3) {
+                                for (int k = 0; k < 3; k++) {
 
-                            xchckWin = xchckWin + arr[i][Math.abs(i - 2)];
-                        }
-                        System.out.println("xchckWin = " + xchckWin);
+                                    btnTmp = (JButton) grid.getComponent((3 * k + indxJ));
+                                    btnTmp.setBackground(Color.red);
 
-                        if (xchckWin == 3) {
-                            for (int k = 2; k >= 0; k--) {
-                                btnTmp = (JButton) grid.getComponent((2 * k + 2));
-                                btnTmp.setBackground(Color.red);
-                            }
-                            JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
-                            dialogWindow.setLocationRelativeTo(null);
-                            dialogWindow.setVisible(true);
-                            return;
-                        }
-
-                    }
-
-                    // перевірка сповчика для Х
-
-                    xchckWin = 0;
-                    for (int i = 0; i < 3; i++) {
-                        System.out.println("X chckWin = XchckWin + arr[" + indxI + "][" + indxJ + "] - "
-                                + xchckWin + "+" + arr[i][((index % 10) - 1)]);
-                        xchckWin = xchckWin + arr[i][indxJ];
-                        System.out.println("X chckWin = " + xchckWin);
-                        if (xchckWin == 3) {
-                            for (int k = 0; k < 3; k++) {
-
-                                btnTmp = (JButton) grid.getComponent((3 * k + indxJ));
-                                btnTmp.setBackground(Color.red);
+                                }
+                                JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                dialogWindow.setLocationRelativeTo(null);
+                                dialogWindow.setVisible(true);
+                                return;
 
                             }
-                            JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
-                            dialogWindow.setLocationRelativeTo(null);
-                            dialogWindow.setVisible(true);
-                            return;
-
                         }
-                    }
-                    // перевірка рядка для Х
-                    xchckWin = 0;
-                    for (int j = 0; j < 3; j++) {
-                        System.out.println("X chckWin = xchckWin + arr[" + indxI + "][" + j + "] - " + xchckWin
-                                + "+" + arr[((index / 10) - 1)][j]);
-                        xchckWin = xchckWin + arr[indxI][j];
+                        // перевірка рядка для Х
+                        xchckWin = 0;
+                        for (int j = 0; j < 3; j++) {
+                            System.out.println("X chckWin = xchckWin + arr[" + indxI + "][" + j + "] - " + xchckWin
+                                    + "+" + arr[((index / 10) - 1)][j]);
+                            xchckWin = xchckWin + arr[indxI][j];
 
-                        System.out.println("X chckWin = " + xchckWin);
-                        if (xchckWin == 3) {
-                            for (int k = 0; k < 3; k++) {
+                            System.out.println("X chckWin = " + xchckWin);
+                            if (xchckWin == 3) {
+                                for (int k = 0; k < 3; k++) {
 
-                                btnTmp = (JButton) grid.getComponent((3 * indxI) + k);
-                                btnTmp.setBackground(Color.red);
+                                    btnTmp = (JButton) grid.getComponent((3 * indxI) + k);
+                                    btnTmp.setBackground(Color.red);
+
+                                }
+                                JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
+                                dialogWindow.setLocationRelativeTo(null);
+                                dialogWindow.setVisible(true);
+                                return;
 
                             }
-                            JDialog dialogWindow = createDialog("Game Over", "Crosses win!!!", true);
-                            dialogWindow.setLocationRelativeTo(null);
-                            dialogWindow.setVisible(true);
-                            return;
-
                         }
+
+                    } else { // ніхто не переміг
+                        JDialog dialogWindow = createDialog("Game Over", "Nobady win!!!", true);
+                        dialogWindow.setLocationRelativeTo(null);
+                        dialogWindow.setVisible(true);
+                        return;
+
                     }
-
-                } else {
-                    JDialog dialogWindow = createDialog("Game Over", "Nobady win!!!", true);
-                    dialogWindow.setLocationRelativeTo(null);
-                    dialogWindow.setVisible(true);
-                    return;
-
                 }
             }
-        }
-            for(
-        int i = 0;
-        i< 3;i++)
-
-        {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(arr[i][j] + "| ");
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    System.out.print(arr[i][j] + "| ");
+                }
+                System.out.println("\n-----------");
             }
-            System.out.println("\n-----------");
+
+
         }
-
-
     }
-}
 }
