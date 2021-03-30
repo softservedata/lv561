@@ -1,4 +1,7 @@
 package com.homework11.homework;
+
+import java.util.stream.Stream;
+
 /*
  * 2. Create two methods String encrypt(String s, int n)
  * and String decrypt(String s, int n)
@@ -8,4 +11,16 @@ package com.homework11.homework;
  * Method decrypt should return decoded value
  */
 public class homework2 {
+    public String encrypts(String s, int n) {
+
+        String result = null;
+
+        return result;
+    }
+
+    public String decrypt(String s, int n) {
+        String result = null;
+        return result;
+    }
+
 }

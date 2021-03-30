@@ -1,4 +1,5 @@
-package com.homework3;
+package com.homework3.homework;
+
 import java.util.Scanner;
 
 
