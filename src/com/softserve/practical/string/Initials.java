@@ -1,4 +1,4 @@
-package com.softserve.edu.practcal.string;
+package com.softserve.practical.string;
 
 import java.io.BufferedReader;
 import java.io.IOException;
