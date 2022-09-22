@@ -8,7 +8,7 @@ public class Example_1 {
         double perymetr = 2 * Pi * r;
         double ploscha = Pi * (r * r);
 
-        System.out.println("Периметр круга = " + perymetr);
+        System.out.println("ПеЕриметр круга = " + perymetr);
         System.out.println("Площа круга = " + ploscha);
     }
 }
